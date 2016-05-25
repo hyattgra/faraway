@@ -1,13 +1,12 @@
 public static int totalNQueens(int n) {
-        List<List<String>> ret = new ArrayList<>();
         int[] cols = new int[n];
         int[] arr = new int[1];
-        helper(ret, 0, n, cols, arr);
+        helper( 0, n, cols, arr);
         return arr[0];
     }
 
 
-    private static void helper(List<List<String>> ret, int rowNum, int n, int[] cols, int[] arr) {
+    private static void helper(int rowNum, int n, int[] cols, int[] arr) {
         if (rowNum == n) {
             arr[0] += 1;
             return;
@@ -16,7 +15,7 @@ public static int totalNQueens(int n) {
         for (int i = 0; i < n; i++) {
             cols[rowNum] = i;
             if (isValid(cols, rowNum)) {
-                helper(ret, rowNum + 1, n, cols, arr);
+                helper(rowNum + 1, n, cols, arr);
             }
         }
     }
